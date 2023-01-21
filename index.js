@@ -7,20 +7,31 @@
  */
 
 function checkTwoIdenticalNumbers(arr) {
-    if (arr.length === 0 || arr.length ===1) {
+    if (arr.length === 0 || arr.length === 1) {
         return "false";
     }
+
+    return arr.some((val, i, arr) => arr[i] === arr[i - 1]);
+
     // debugger
-    for (let i = 0; i < arr.length; i++) {
-        if (arr[i] === arr[i-1]) {
-            return true;
-        }
-    }
-    return false;
+    // for (let i = 0; i < arr.length; i++) {
+    //     if (arr[i] === arr[i-1]) {
+    //         return true;
+    //     }
+    // }
+    // return false;
+
+    // return arr.find((elem, index, arr)=>{
+    //     if(arr[index]===arr[index-1]) {
+    //         return true;
+    //     }
+    //     return false;
+    // })
 }
 
 console.log(checkTwoIdenticalNumbers([]));
 console.log(checkTwoIdenticalNumbers([1, 2, 2, 3, 2]));
-console.log(checkTwoIdenticalNumbers([3,3]));
-console.log(checkTwoIdenticalNumbers([1, 2, 3, 4, 5]));
+console.log(checkTwoIdenticalNumbers([1, 0, 2, 3, 3]));
+console.log(checkTwoIdenticalNumbers([3, 3]));
+console.log(checkTwoIdenticalNumbers([1, 2, 3, 5, 4, 5]));
 console.log(checkTwoIdenticalNumbers([1]));
